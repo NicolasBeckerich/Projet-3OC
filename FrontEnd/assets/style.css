@@ -125,6 +125,48 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+/* Filtres CSS */
+
+
+
+#filtres {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+
+input {
+	
+	border: solid 1px #1D6154;
+	display: inline-block;
+	border-radius: 60px;
+	padding: 10px 25px; 
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19px;
+	text-align: center;
+	color: #1D6154;
+	background-color: white;
+}
+
+input:active{
+	background-color: #1D6154;
+	color: white;
+
+}
+
+
+
+
+
+
+
 .gallery {
 	width: 100%;
 	display: grid;
