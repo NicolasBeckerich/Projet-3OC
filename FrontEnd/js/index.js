@@ -1,15 +1,43 @@
-// Création constante correspondant récupération html via class = Tous
-const boutonFiltres = document.querySelectorAll(".Tous");
-// Création boucle sur Bouton Filtre pour récuperer tout les clique
-boutonFiltres.forEach(function (boutonFiltre) {
-  //Création Evènement pour récupération des cliques e=evenement
-  boutonFiltre.addEventListener("click", function (e) {
-    // création variable target afin d'aller chercher dans le Dataset de l'html la valeur correspondante
-    let target = e.target.dataset.categories;
-    //appelle de la fonction test avec paramètres target déclaré précedemment
-    Test(target);
-  });
-});
+fetch("http://localhost:5678/api/categories")
+  .then(response => response.json())
+  .then(projects => {
+    projects.forEach(project => {
+
+      const input = document.createElement("input");
+      input.setAttribute("type", "button");
+      input.setAttribute("data-categories", project.id);
+      input.setAttribute("value", project.name);
+      input.setAttribute("class", "Tous");
+      const divfiltres = document.querySelector("#filtres");
+      divfiltres.appendChild(input);
+
+
+    });
+
+    // Création constante correspondant récupération html via class = Tous
+    const boutonFiltres = document.querySelectorAll(".Tous");
+    // Création boucle sur Bouton Filtre pour récuperer tout les clique
+    boutonFiltres.forEach(function (boutonFiltre) {
+      //Création Evènement pour récupération des cliques e=evenement
+      boutonFiltre.addEventListener("click", function (e) {
+        // Remove les classes cliqué de chaque élément de mes boutons
+        boutonFiltres.forEach(boutonFiltre => {
+          boutonFiltre.classList.remove("test");
+
+        });
+        // Ajout classes css pour avoir le vert au clique avec le target
+        e.target.classList.add("test");
+        // création variable target afin d'aller chercher dans le Dataset de l'html la valeur correspondante
+        let target = e.target.dataset.categories;
+        //appelle de la fonction test avec paramètres target déclaré précedemment
+        Test(target);
+      });
+    });
+  })
+
+  .catch(err => console.log(err))
+
+
 // Appelle de la fonction sans filtres par la valeur donné au data-set Tous
 Test("0");
 // function Test(target = "0") option alternative par défaut paramètre fonction = "0"

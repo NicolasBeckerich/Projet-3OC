@@ -155,10 +155,10 @@ input {
 	background-color: white;
 }
 
-input:active{
+
+.test {
 	background-color: #1D6154;
 	color: white;
-
 }
 
 
