@@ -161,12 +161,6 @@ input {
 	color: white;
 }
 
-
-
-
-
-
-
 .gallery {
 	width: 100%;
 	display: grid;
@@ -226,5 +220,12 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
+}
+
+.mdp {
+	display: flex;
+	flex-direction: column;
+	color: black;
+	font-family: 'Work Sans';
 }
 

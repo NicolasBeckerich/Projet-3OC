@@ -60,6 +60,11 @@ function Test(target) {
         projects = filtreCategories;
       }
 
+       projects = Array.from(new Set(projects.map(a => a.id)))
+        .map(id => {
+          return projects.find(a => a.id === id)
+        })
+
       projects.forEach(project => {
 
         const figure = document.createElement("figure");
