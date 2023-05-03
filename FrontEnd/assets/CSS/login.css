@@ -1,0 +1,6 @@
+.mdp {
+	display: flex;
+	flex-direction: column;
+	color: black;
+	font-family: 'Work Sans';
+}
