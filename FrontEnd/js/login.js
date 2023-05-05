@@ -8,12 +8,12 @@ document.getElementById('connexion-form').addEventListener('submit', async (e) =
   // console.log(email, motdepasse, messageErreur, JSON.stringify({ email, motdepasse }));
 
   try {
-    const response = fetch('http://localhost:5678/api/users/login', {
+    const response = await fetch('http://localhost:5678/api/users/login', {
       // mode : 'no-cors',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        // 'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify({ email, motdepasse }),
     }).then(res => res.json())
