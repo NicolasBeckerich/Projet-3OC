@@ -4,3 +4,9 @@
 	color: black;
 	font-family: 'Work Sans';
 }
+
+
+
+#message-erreur {
+	color: red;
+}
