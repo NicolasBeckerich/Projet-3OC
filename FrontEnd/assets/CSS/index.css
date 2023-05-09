@@ -26,4 +26,9 @@
 .filtres-color {
 	background-color: #1D6154;
 	color: white;
+	
+}
+
+.hidden{
+	display: none;
 }
