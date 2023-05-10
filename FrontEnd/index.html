@@ -13,16 +13,23 @@
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="stylesheet" href="./assets/CSS/index.css">
 	<link rel="stylesheet" href="./assets/CSS/modale.css">
+	<script src="https://kit.fontawesome.com/4af4c9fb23.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+	<div id="mode-edition" class="modifier classToShow">
+		<div>
+			<i class="fa-regular fa-pen-to-square"></i> Mode édition
+			<button>publier les changements</button>
+		</div>
+	</div>
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 		<nav>
 			<ul>
 				<li>projets</li>
 				<li>contact</li>
-				<li>login</li>
+				<li id="loginLogoutButton">login</li>
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
@@ -31,10 +38,9 @@
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
-				<div>
-					<i class="fa-thin fa-pen-to-square"></i>
-					<button id="editBtn">modifier</button>
-
+				<div class="classToShow">
+					<i class="fa-regular fa-pen-to-square" id="padding-i"></i>
+					<button class="style-modif">modifier</button>
 				</div>
 			</figure>
 			<article>
@@ -49,21 +55,27 @@
 			</article>
 		</section>
 
-		<div id="modal" class="modal">
-			<div class="modal-content">
-				<span class="close">&times;</span>
-				<h2 id="gallery-typo">Galerie photo</h2>
-				<div class="modale-gallery">
-					<button id="add-photo">Ajouter une photo</button>
-					<button id="remove-gallery">Supprimer la galerie</button>
-				</div>
-
-		</div>
-		</div>
-
 		<section id="portfolio">
-			<h2>Mes Projets</h2>
-			<div id="filtres">
+			<div class="flex-projects">
+				<h2>Mes projets</h2>
+				<div class="classToShow">
+					<i class="fa-regular fa-pen-to-square"></i>
+					<button id="editBtn">modifier</button>
+				</div>
+			</div>
+
+
+			<div id="modal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<h2 id="gallery-typo">Galerie photo</h2>
+					<div class="modale-gallery">
+						<button id="add-photo">Ajouter une photo</button>
+						<button id="remove-gallery">Supprimer la galerie</button>
+					</div>
+				</div>
+			</div>
+			<div id="filtres" class="classToHide">
 			</div>
 
 			<div class="gallery ">
@@ -95,6 +107,8 @@
 	<script src="js/index.js">
 	</script>
 	<script src="js/modale.js">
+	</script>
+	<script src="js/admin.js">
 	</script>
 </body>
 

@@ -5,7 +5,7 @@ document.getElementById('connexion-form').addEventListener('submit', async (e) =
 
   // Définition des variables en les cherchant dans le HTML
   const email = document.getElementById('email').value;
-  const password = document.getElementById('motdepasse').value;
+  const password = document.getElementById('motdepasse').value; // anglais
   const messageErreur = document.getElementById('message-erreur');
 
   try {
@@ -43,6 +43,7 @@ document.getElementById('connexion-form').addEventListener('submit', async (e) =
     }
     // est la pour attrapé une erreur particulière plus haut dans ce cas cela affiche un message d'erreur
   } catch (err) {
+    console.log(err);
     messageErreur.innerText = "Une erreur s'est produite lors de la connexion.";
   }
 });
