@@ -52,8 +52,7 @@ Tri(0);
  * @param {string} target 
  */
 function Tri(target) {
-  fetch("http://localhost:5678/api/works")
-    .then(response => response.json())
+  works()
     .then(projects => {
 
       //vider les éléments de la gallery et les recharger selon les filtres
@@ -89,6 +88,12 @@ function Tri(target) {
     .catch(err => console.log(err))
 
 
+}
+
+
+function works() {
+  return fetch("http://localhost:5678/api/works")
+    .then(response => response.json());
 }
 
 

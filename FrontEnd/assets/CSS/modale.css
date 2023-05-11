@@ -1,3 +1,6 @@
+/* Première modale */
+
+
 .modal {
    display: none;
    position: fixed;
@@ -76,6 +79,7 @@ color: #000000;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
+  margin-bottom: 20px;
 }
 
 #remove-gallery {
@@ -99,3 +103,49 @@ color: #D65353;
   flex-direction: column;
   align-items: center;
 }
+
+
+/* importation galery*/
+
+#works-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding: 0 80px; 
+}
+
+#works-container figure {
+  position: relative;
+}
+
+
+#works-container figure {
+  position: relative;
+  width: 80%;  
+  height: 100%;
+}
+
+#works-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+#gray-bar {
+  height: 1px;
+  width: 70%;  
+  background: gray; 
+  margin: 70px auto;  
+}
+
+.icon-style {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: white;
+  background-color: black;
+  padding: 5px;
+  font-size: 10px;
+}
+
+/* Seconde Modale */

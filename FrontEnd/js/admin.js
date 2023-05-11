@@ -1,6 +1,7 @@
+ // Je récupère mon Token
+ var authToken = localStorage.getItem('authToken');
+
 document.addEventListener("DOMContentLoaded", function() {
-    // Je récupère mon Token
-    var authToken = localStorage.getItem('authToken');
 
     // Je récup mes class pour montrer ou cacher
     var classToHide = document.getElementsByClassName('classToHide');
