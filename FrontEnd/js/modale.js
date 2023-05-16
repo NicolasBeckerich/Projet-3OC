@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-
+  
   // Définition des variables pour ma première modale
   var modal = document.getElementById("modal");
   var editBtn = document.getElementById("editBtn");
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var backArrow = document.getElementById("back-arrow");
 
   // j'ajoute un évènement qui lorsque je clique sur le bouton editBtn s'affiche en display de none à block 
-  // j'appelle aussi ma fonction displayWorks pour appeler mes travaux à ce moment là
+  // j'appelle aussi ma fonction modalWorks pour appeler mes travaux à ce moment là
   editBtn.addEventListener('click', function () {
     modal.style.display = "block";
     modalWorks();
@@ -21,13 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // j'ajoute un évènement qui lorsque je clique sur le bouton closeModalBtn s'affiche en display de block à none
   closeModalBtn.addEventListener('click', function () {
     modal.style.display = "none";
-  });
-
-  // Si je clique en dehors de la fenêtre de modale elle sera masquée
-  window.addEventListener('click', function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
   });
 
   // Ajoute un événement qui, lorsque je clique sur le bouton addPhotoBtn, change la première modale de 'block' à 'none' et la deuxième modale de 'none' à 'block'
@@ -41,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
   backArrow.addEventListener('click', function () {
     secondModal.style.display = "none";
     modal.style.display = "block";
+    resetForm();
   });
 
   // Ajoute un événement qui, lorsque je clique sur le bouton closeSecondModalBtn, ferme la deuxième modale
@@ -48,8 +42,11 @@ document.addEventListener('DOMContentLoaded', function () {
     secondModal.style.display = "none";
   });
 
-  // Si je clique en dehors de la fenêtre de la deuxième modale, elle sera disparu
+  // Si je clique en dehors de la fenêtre de la deuxième modale, elle sera disparu, pareil pour la première modale
   window.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
     if (event.target === secondModal) {
       secondModal.style.display = "none";
     }
@@ -209,11 +206,7 @@ function updateImagePreview() {
       labels.forEach((label) => {
         label.style.display = "none";
       });
-    } else {
-      resetForm();
     }
-  } else {
-    resetForm();
   }
 }
 

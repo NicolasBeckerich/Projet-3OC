@@ -33,11 +33,11 @@
 /* caché pas caché */
 
 .classToHide {
-    visibility: visible; /* Visible par défaut */
+   display: none;
 }
 
 .classToShow {
-    visibility: hidden; /* Caché par défaut */
+    display: block;
 }
 
 

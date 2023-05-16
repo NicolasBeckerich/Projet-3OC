@@ -90,7 +90,6 @@ function Tri(target) {
 
 }
 
-
 function works() {
   return fetch("http://localhost:5678/api/works")
     .then(response => response.json());
