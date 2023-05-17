@@ -46,6 +46,9 @@
 	color: white;
 	background-color: black;
 	height: 57px;
+	width : 100vw;
+	margin-left : calc(-1 * ((100vw - 100%) / 2));
+
 }
 
 #mode-edition div {
@@ -60,7 +63,7 @@
 	font-family: 'Work Sans';
 	font-size: 14px;
 	padding-left: 10px;
-	width: 20%;
+	width: 15%;
 	border-radius: 60px;
 }
 
@@ -106,7 +109,14 @@
   }
   
 
-#padding-i {
+#padding-i1 {
 	padding-left: 58px;
+	padding-top: 16px;
 }
+
+#padding-i2 {
+	margin-left: 28px;
+	padding-bottom: 100px;
+}
+
 

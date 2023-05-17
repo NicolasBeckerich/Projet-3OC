@@ -112,6 +112,7 @@ color: #D65353;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   padding: 0 80px; 
+  margin-top: 46px;
 }
 
 #works-container figure {
@@ -145,7 +146,17 @@ color: #D65353;
   color: white;
   background-color: black;
   padding: 5px;
-  font-size: 10px;
+  font-size: 8px;
+}
+
+.icon-style-hover {
+  position: absolute;
+  top: 3px;
+  right: 21px;
+  color: white;
+  background-color: black;
+  padding: 5px;
+  font-size: 8px;
 }
 
 /* Seconde Modale */
@@ -200,6 +211,7 @@ color: #D65353;
 	align-items: center;
 	flex-direction: column;
 	border-radius: 8px;
+  margin-top: 30px;
 }
 
 .fa-image {
@@ -259,7 +271,8 @@ select {
 	font-size: 14px;
 	height: 50px;
 	padding-left: 15px;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09)
+	box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.1);
+  border: none;
 }
 
 #bouton-valider {

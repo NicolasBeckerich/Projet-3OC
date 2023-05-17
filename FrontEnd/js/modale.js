@@ -84,9 +84,13 @@ function modalWorks() {
       const figcaption = document.createElement("figcaption");
       figcaption.innerText = "éditer";
 
-      // Création de l'icône font awesome avec ajout class icon style 
+      // je creer l'icône font awesome avec ajout class icon style 
       const icon = document.createElement("i");
       icon.classList.add("fa", "fa-solid", "fa-trash-can", "icon-style");
+
+      // je creer l'icône de survol avec la classe icone style hover
+      const hoverIcon = document.createElement("i");
+      hoverIcon.classList.add("fa", "fa-solid", "fa-arrows-up-down-left-right", "icon-style-hover");
 
       // Ajout des éléments enfants à la figure
       figure.appendChild(img);
@@ -98,6 +102,16 @@ function modalWorks() {
 
       // Ajout de la figure au conteneur
       container.appendChild(figure);
+
+      // Evenement pour le survol et non survol de mon icone
+      figure.addEventListener("mouseover", function() {
+        this.appendChild(hoverIcon);
+      });
+      figure.addEventListener("mouseout", function() {
+        if (this.contains(hoverIcon)) {
+          this.removeChild(hoverIcon);
+        }
+      });
 
       // J'ajoute l'événement de clic pour la suppression de travail sur l'icone
       icon.addEventListener("click", () => {
@@ -130,12 +144,11 @@ function modalWorks() {
   });
 }
 
-
 /////////////////////////////////////////// Partie ajout de travaux et deuxième modale ///////////////////////////////////////////
 
 
 
-// Stockage des éléments dont j'ai besoin dans variables
+// Stockage des éléments dont j'ai besoin dans constantes
 const newImage = document.getElementById("bouton-search");
 const newImagePreview = document.getElementById("image-preview");
 const newTitleImage = document.getElementById("title-image");
@@ -188,43 +201,57 @@ function resetForm() {
   });
 }
 
-// La fonction est la pour que l'utilisatuer selectionne un fichier elle vérifie si c'est conforme et met à jour mon bouton de validation
-function updateImagePreview() {
-  const selectedFile = newImage.files[0];
-  if (selectedFile) {
-    if (checkFileTypeAndSize(selectedFile)) {
-      const imgUrl = URL.createObjectURL(selectedFile);
-      const img = document.createElement("img");
-      img.src = imgUrl;
-      newImagePreview.innerHTML = "";
-      newImagePreview.appendChild(img);
-      newImagePreview.style.display = "block";
-      validButton.disabled = false;
-      validButton.style.backgroundColor = "green";
+// La fonction est la pour que l'utilisatuer selectionne un fichier elle vérifie sa conformité 
 
-      const labels = document.querySelectorAll("label.send-image");
-      labels.forEach((label) => {
-        label.style.display = "none";
-      });
-    }
+function updateImagePreview() {
+  // Chercher le fichier le vérifier et creer son URL
+  const selectedFile = newImage.files[0];
+  if (selectedFile && checkFileTypeAndSize(selectedFile)) {
+    const imgUrl = URL.createObjectURL(selectedFile);
+
+    // Je creer un nouvel élément img pour afficher la prévisualisation de l'image
+    const img = document.createElement("img");
+    img.src = imgUrl;
+
+    // je clean la zone de prévisualisation et ajoute la nouvelle image
+    newImagePreview.innerHTML = "";
+    newImagePreview.appendChild(img);
+    newImagePreview.style.display = "block";
+
+    // Partie qui masque ce qui se trouvais avant l'image
+    const labels = document.querySelectorAll("label.send-image");
+    labels.forEach((label) => {
+      label.style.display = "none";
+    });
+
+    // J'utilise ma fonction pour vérifier la validité de mon image pour l'activation de mon bouton
+    checkFormValidity();
   }
 }
 
-// fonction pour titre et catégories de l'image vérifie que les champs ne sont pas vide et met à jour mon bouton valider
+// Cette fonction sert à vérifier que chaque champ de mon formulaire est bien valide et active ou non le bouton pour envoie
 function checkFormValidity() {
+  // Je cherche les valeurs des champs
+  const selectedFile = newImage.files[0];
   const titleValue = newTitleImage.value.trim();
   const objetValue = newObjetImage.value;
 
-  if (titleValue !== "" && objetValue !== "") {
+  const categorySelect = document.getElementById("objet");
+  const categoryValue = categorySelect.value;
+
+  // Ici je vérifie les champs 
+  if (titleValue !== "" && objetValue !== "" && selectedFile && checkFileTypeAndSize(selectedFile) && categoryValue !== "Choisissez une catégorie") {
+    // Si le formulaire est valide le bouton est activé et devient vert 
     validButton.disabled = false;
-    validButton.style.backgroundColor = "green";
+    validButton.style.backgroundColor =  "#1D6154";
   } else {
+    // Si le formulaire n'est pas valide le bouton est désactivé et devient gris
     validButton.disabled = true;
     validButton.style.backgroundColor = "grey";
   }
 }
 
-// Arès que j'appuie sur le bouton valider
+// Après que j'appuie sur le bouton valider
 // je crée un objet FormData avec les informations du formulaire puis fais un envoie à l'API
 function sendDataToAPI(event) {
 

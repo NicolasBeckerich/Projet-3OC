@@ -41,7 +41,7 @@ modifyDiv.className = "classToShow";
 // icône
 var icon = document.createElement("i");
 icon.className = "fa-regular fa-pen-to-square";
-icon.id = "padding-i";
+icon.id = "padding-i1";
 
 // le bouton
 var modifyButton = document.createElement("button");
@@ -70,7 +70,7 @@ showDiv.className = "classToShow";
 // l'icône
 var icon = document.createElement("i");
 icon.className = "fa-regular fa-pen-to-square";
-icon.id = "padding-i";
+icon.id = "padding-i2";
 
 // le bouton
 var button = document.createElement("button");
